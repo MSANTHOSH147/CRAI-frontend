@@ -1,0 +1,614 @@
+﻿/* ============================================================
+   CRAI — FARMER FIRST DESIGN SYSTEM
+   Mobile-first / compact / evidence-led
+   ============================================================ */
+
+:root {
+  --crai-bg: #f6f8f4;
+  --crai-surface: #ffffff;
+  --crai-surface-soft: #f0f4ef;
+  --crai-border: #dfe7df;
+
+  --crai-green: #145a45;
+  --crai-green-2: #1f765a;
+  --crai-green-soft: #e7f1eb;
+
+  --crai-text: #17201c;
+  --crai-muted: #68756e;
+  --crai-subtle: #8b9690;
+
+  --crai-amber: #a96f16;
+  --crai-amber-soft: #fff4dc;
+
+  --crai-red: #b33b36;
+  --crai-red-soft: #fdebea;
+
+  --crai-blue: #326b8c;
+  --crai-blue-soft: #eaf3f7;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+
+  --shadow-card: 0 2px 10px rgba(23,32,28,.045);
+  --shadow-soft: 0 8px 24px rgba(23,32,28,.06);
+
+  --mobile-nav-height: 70px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--crai-bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--crai-bg);
+  color: var(--crai-text);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- APP SHELL ---------- */
+
+.app-shell,
+.app-layout,
+.shell {
+  min-height: 100vh;
+  background: var(--crai-bg);
+}
+
+.main-content,
+.app-content,
+.page-content {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 18px 18px calc(var(--mobile-nav-height) + 28px);
+}
+
+/* ---------- MOBILE HEADER ---------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+
+  min-height: 62px;
+  padding: 10px 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  background: rgba(246,248,244,.94);
+  border-bottom: 1px solid rgba(223,231,223,.8);
+  backdrop-filter: blur(16px);
+}
+
+.mobile-brand {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -.04em;
+  color: var(--crai-green);
+}
+
+.top-context {
+  display: none;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-pill {
+  min-height: 40px;
+  padding: 7px 10px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  border: 1px solid var(--crai-border);
+  border-radius: 999px;
+  background: var(--crai-surface);
+
+  color: var(--crai-text);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.icon-button {
+  width: 40px;
+  height: 40px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--crai-border);
+  border-radius: 50%;
+  background: var(--crai-surface);
+  color: var(--crai-text);
+}
+
+/* ---------- PAGE ---------- */
+
+.page-header {
+  margin-bottom: 16px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: clamp(22px, 5vw, 32px);
+  line-height: 1.12;
+  letter-spacing: -.035em;
+}
+
+.page-header p {
+  margin: 6px 0 0;
+  color: var(--crai-muted);
+  font-size: 14px;
+}
+
+/* ---------- CARDS ---------- */
+
+.card,
+.crai-card,
+.panel,
+.section-card {
+  background: var(--crai-surface);
+  border: 1px solid var(--crai-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.card {
+  padding: 14px;
+}
+
+.section-card,
+.panel {
+  padding: 16px;
+}
+
+.card h2,
+.card h3,
+.panel h2,
+.panel h3 {
+  margin-top: 0;
+}
+
+.card p,
+.panel p {
+  color: var(--crai-muted);
+}
+
+/* Kill giant empty dashboard cards */
+.card:empty,
+.panel:empty {
+  display: none;
+}
+
+/* ---------- FARMER HOME ---------- */
+
+.farmer-home,
+.farmer-home-page,
+.home-page {
+  width: 100%;
+}
+
+.farmer-home > *,
+.farmer-home-page > *,
+.home-page > * {
+  margin-bottom: 12px;
+}
+
+/* Hero should stay compact */
+.farmer-hero,
+.hero-card {
+  padding: 16px !important;
+  min-height: auto !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+/* ---------- RISK ---------- */
+
+.risk-card {
+  padding: 16px !important;
+  min-height: 0 !important;
+}
+
+.risk-card h1,
+.risk-card h2 {
+  margin: 0;
+}
+
+.risk-score {
+  font-size: 36px !important;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -.05em;
+}
+
+/* ---------- EVIDENCE GRID ---------- */
+
+.evidence-grid,
+.evidence-overview-grid,
+.evidence-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.evidence-card,
+.evidence-tile {
+  min-width: 0;
+  padding: 12px !important;
+  border-radius: 13px !important;
+}
+
+.evidence-card p,
+.evidence-tile p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+/* ---------- METRICS ---------- */
+
+.metric-grid,
+.conditions-grid,
+.sensor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.metric,
+.condition-card,
+.sensor-card {
+  min-width: 0;
+  padding: 11px !important;
+  border: 1px solid var(--crai-border);
+  border-radius: 12px;
+  background: var(--crai-surface);
+}
+
+.metric-value,
+.condition-value {
+  font-size: 17px;
+  font-weight: 750;
+  line-height: 1.15;
+}
+
+.metric-label,
+.condition-label {
+  margin-top: 3px;
+  color: var(--crai-muted);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+/* ---------- ACTION ---------- */
+
+.next-action-card,
+.recommendation-card {
+  padding: 15px !important;
+  border-left: 4px solid var(--crai-green);
+}
+
+.next-action-card h2,
+.recommendation-card h2 {
+  font-size: 16px;
+}
+
+/* ---------- ASK CRAI ---------- */
+
+.ask-crai-card {
+  padding: 14px !important;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, #ffffff 0%, #eef6f0 100%);
+}
+
+.ask-crai-input {
+  min-height: 48px;
+}
+
+/* ---------- ACTIVITY ---------- */
+
+.recent-activity {
+  padding: 14px !important;
+}
+
+.recent-activity-item {
+  padding: 9px 0 !important;
+  border-bottom: 1px solid var(--crai-border);
+}
+
+/* ---------- STATUS ---------- */
+
+.status-badge,
+.badge {
+  min-height: 24px;
+  padding: 4px 8px;
+
+  display: inline-flex;
+  align-items: center;
+
+  border-radius: 999px;
+
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .035em;
+}
+
+/* ---------- MOBILE NAV ---------- */
+
+.mobile-bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+
+  height: var(--mobile-nav-height);
+  padding: 7px 8px calc(7px + env(safe-area-inset-bottom));
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3px;
+
+  background: rgba(255,255,255,.97);
+  border-top: 1px solid var(--crai-border);
+  box-shadow: 0 -6px 22px rgba(23,32,28,.06);
+  backdrop-filter: blur(18px);
+}
+
+.mobile-bottom-nav a,
+.mobile-bottom-nav button {
+  min-width: 44px;
+  min-height: 44px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+
+  border: 0;
+  background: transparent;
+
+  color: var(--crai-muted);
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.mobile-bottom-nav a.active,
+.mobile-bottom-nav button.active {
+  color: var(--crai-green);
+}
+
+.mobile-bottom-nav svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------- SIDEBAR ---------- */
+
+.sidebar {
+  display: none;
+}
+
+/* ---------- TECHNICAL DETAILS ---------- */
+
+.technical-details,
+.expert-details,
+.decision-trace,
+.evidence-package {
+  border: 1px solid var(--crai-border);
+  border-radius: var(--radius-md);
+  background: var(--crai-surface);
+}
+
+.technical-details summary {
+  min-height: 44px;
+  padding: 12px 14px;
+
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.technical-details > div {
+  padding: 0 14px 14px;
+}
+
+/* ---------- IMAGE ---------- */
+
+.crop-image,
+.evidence-image {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* ---------- FORMS ---------- */
+
+input,
+textarea,
+select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+
+  border: 1px solid var(--crai-border);
+  border-radius: 11px;
+
+  background: var(--crai-surface);
+  color: var(--crai-text);
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--crai-green-2);
+  box-shadow: 0 0 0 3px rgba(20,90,69,.09);
+}
+
+/* ---------- BUTTONS ---------- */
+
+button,
+.button,
+.btn {
+  min-height: 44px;
+  border-radius: 11px;
+}
+
+.primary-button,
+.btn-primary {
+  background: var(--crai-green);
+  color: white;
+  border: 1px solid var(--crai-green);
+  font-weight: 700;
+}
+
+.secondary-button,
+.btn-secondary {
+  background: var(--crai-surface);
+  color: var(--crai-green);
+  border: 1px solid var(--crai-border);
+}
+
+/* ---------- DESKTOP ---------- */
+
+@media (min-width: 900px) {
+
+  .mobile-bottom-nav {
+    display: none;
+  }
+
+  .sidebar {
+    display: flex;
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 218px;
+    padding: 20px 12px;
+
+    flex-direction: column;
+
+    background: #fff;
+    border-right: 1px solid var(--crai-border);
+  }
+
+  .main-content,
+  .app-content,
+  .page-content {
+    max-width: 1180px;
+    margin-left: 218px;
+    width: calc(100% - 218px);
+    padding: 24px 28px;
+  }
+
+  .topbar {
+    margin-left: 218px;
+    padding-left: 24px;
+  }
+
+  .top-context {
+    display: inline;
+    color: var(--crai-muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+  }
+
+  .mobile-brand {
+    display: none;
+  }
+
+  .farmer-home-grid,
+  .home-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(300px, .8fr);
+    gap: 12px;
+    align-items: start;
+  }
+
+  .evidence-grid,
+  .evidence-overview-grid,
+  .evidence-cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .main-content > *,
+  .page-content > * {
+    max-width: 100%;
+  }
+}
+
+/* ---------- SMALL PHONES ---------- */
+
+@media (max-width: 380px) {
+
+  .main-content,
+  .app-content,
+  .page-content {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .evidence-grid,
+  .evidence-overview-grid,
+  .evidence-cards {
+    gap: 6px;
+  }
+
+  .evidence-card,
+  .evidence-tile {
+    padding: 9px !important;
+  }
+
+  .metric,
+  .condition-card,
+  .sensor-card {
+    padding: 9px !important;
+  }
+}

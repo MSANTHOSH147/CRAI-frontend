@@ -1,0 +1,28 @@
+import { Routes, Route } from "react-router-dom";
+import AppShell from "../components/layout/AppShell.jsx";
+import FarmerHome from "../pages/FarmerHome.jsx";
+import FieldsPage from "../pages/FieldsPage.jsx";
+import FieldAssessment from "../pages/FieldAssessment.jsx";
+import AlertsPage from "../pages/AlertsPage.jsx";
+import AskCraiPage from "../pages/AskCraiPage.jsx";
+import ExpertConsole from "../pages/ExpertConsole.jsx";
+import EvidencePage from "../pages/EvidencePage.jsx";
+import SettingsPage from "../pages/SettingsPage.jsx";
+import DemoMode from "../pages/DemoMode.jsx";
+
+export default function AppRoutes(){
+  return <Routes>
+    <Route path="/demo" element={<DemoMode/>}/>
+    <Route element={<AppShell/>}>
+      <Route path="/" element={<FarmerHome/>}/>
+      <Route path="/fields" element={<FieldsPage/>}/>
+      <Route path="/field/:id" element={<FieldAssessment/>}/>
+      <Route path="/alerts" element={<AlertsPage/>}/>
+      <Route path="/ask-crai" element={<AskCraiPage/>}/>
+      <Route path="/expert" element={<ExpertConsole/>}/>
+      <Route path="/evidence/:id" element={<EvidencePage/>}/>
+      <Route path="/settings" element={<SettingsPage/>}/>
+      <Route path="*" element={<FarmerHome/>}/>
+    </Route>
+  </Routes>;
+}

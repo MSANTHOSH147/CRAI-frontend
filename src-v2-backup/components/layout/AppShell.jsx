@@ -1,0 +1,2 @@
+import {Outlet} from "react-router-dom"; import Sidebar from "./Sidebar.jsx"; import Topbar from "./Topbar.jsx"; import MobileBottomNav from "./MobileBottomNav.jsx"; import {useFieldSelection} from "../../app/FieldContext.jsx";
+export default function AppShell(){const {selected}=useFieldSelection();return <div className="crai-shell"><Sidebar/><main className="crai-main"><Topbar fieldName={selected.fieldName} zoneName={selected.zoneName}/><div className="crai-content"><Outlet/></div></main><MobileBottomNav/></div>}
